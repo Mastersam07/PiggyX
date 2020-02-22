@@ -1,7 +1,6 @@
 # loginx
 
-Simple login and signup app with flutter with tests implemented
-
+A new flutter application
 ## Getting Started
 
 This project is a starting point for a Flutter application.
