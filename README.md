@@ -1,5 +1,7 @@
 # loginx
 
+[![Build Status](https://travis-ci.com/Mastersam07/PiggyX.svg?branch=master)](https://travis-ci.com/Mastersam07/PiggyX)
+
 A new flutter application
 ## Getting Started
 
