@@ -1,5 +1,6 @@
 # loginx
 
+[![Codemagic build status](https://api.codemagic.io/apps/5e5172a747dcea4e81e488dd/5e5172a747dcea4e81e488dc/status_badge.svg)](https://codemagic.io/apps/5e5172a747dcea4e81e488dd/5e5172a747dcea4e81e488dc/latest_build)
 [![Build Status](https://travis-ci.com/Mastersam07/PiggyX.svg?branch=master)](https://travis-ci.com/Mastersam07/PiggyX)
 [![Coverage Status](https://coveralls.io/repos/github/Mastersam07/PiggyX/badge.svg?branch=master)](https://coveralls.io/github/Mastersam07/PiggyX?branch=master)
 
