@@ -116,8 +116,10 @@ class _LoginPageState extends State<LoginPage> {
 
   List<Widget> buildImage() {
     return <Widget>[
-      CircleAvatar(
-        backgroundImage: AssetImage('assets/images/piggyicon.png'),
+      Center(
+        child: CircleAvatar(
+          backgroundImage: AssetImage('assets/images/piggyicon.png'),
+        ),
       )
     ];
   }
