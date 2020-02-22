@@ -1,6 +1,7 @@
 # loginx
 
 [![Build Status](https://travis-ci.com/Mastersam07/PiggyX.svg?branch=master)](https://travis-ci.com/Mastersam07/PiggyX)
+[![Coverage Status](https://coveralls.io/repos/github/Mastersam07/PiggyX/badge.svg?branch=master)](https://coveralls.io/github/Mastersam07/PiggyX?branch=master)
 
 A new flutter application
 ## Getting Started
