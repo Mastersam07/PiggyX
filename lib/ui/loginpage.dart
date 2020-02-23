@@ -63,6 +63,19 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  Future<void> validateAndLoginGoogle() async {
+    try {
+      final BaseAuth auth = AuthProvider.of(context).auth;
+      if (_formType == FormType.login) {
+        final String userId = await auth.signInWithGoogle();
+        print('Signed in: $userId');
+      }
+      widget.onSignedIn();
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
   void moveToRegister() {
     formKey.currentState.reset();
     setState(() {
@@ -87,9 +100,13 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: buildImage() + buildInputs() + buildSubmitButtons(),
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: buildImage() + buildInputs() + buildSubmitButtons(),
+            ),
           ),
         ),
       ),
@@ -111,6 +128,9 @@ class _LoginPageState extends State<LoginPage> {
         validator: PasswordFieldValidator.validate,
         onSaved: (String value) => _password = value,
       ),
+      SizedBox(
+        height: 10.0,
+      ),
     ];
   }
 
@@ -119,34 +139,179 @@ class _LoginPageState extends State<LoginPage> {
       Center(
         child: CircleAvatar(
           backgroundImage: AssetImage('assets/images/piggyicon.png'),
+          backgroundColor: Colors.white,
+          radius: 100.0,
         ),
-      )
+      ),
+      SizedBox(
+        height: 50.0,
+      ),
     ];
   }
 
   List<Widget> buildSubmitButtons() {
     if (_formType == FormType.login) {
       return <Widget>[
-        RaisedButton(
-          key: Key('signIn'),
-          child: Text('signIn', style: TextStyle(fontSize: 20.0)),
+        OutlineButton(
+          key: Key('SignIn'),
+          splashColor: Colors.grey,
           onPressed: validateAndSubmit,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          highlightElevation: 0,
+          borderSide: BorderSide(color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+//                Image(
+//                    image: AssetImage("assets/images/google_logo.png"), height: 35.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'SignIn',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
-        FlatButton(
-          child: Text('signUp', style: TextStyle(fontSize: 20.0)),
+        SizedBox(
+          height: 10.0,
+        ),
+        OutlineButton(
+          key: Key('SignInWithGogle'),
+          splashColor: Colors.grey,
+          onPressed: validateAndLoginGoogle,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          highlightElevation: 0,
+          borderSide: BorderSide(color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Image(
+                    image: AssetImage("assets/images/google_logo.png"),
+                    height: 35.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'Sign in with Google',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(
+          height: 10.0,
+        ),
+        OutlineButton(
+          key: Key('SignUp'),
+          splashColor: Colors.grey,
           onPressed: moveToRegister,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          highlightElevation: 0,
+          borderSide: BorderSide(color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+//                Image(
+//                    image: AssetImage("assets/images/google_logo.png"), height: 35.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'SignUp',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ];
     } else {
       return <Widget>[
-        RaisedButton(
-          child: Text('signUp', style: TextStyle(fontSize: 20.0)),
+        OutlineButton(
+          splashColor: Colors.grey,
           onPressed: validateAndSubmit,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          highlightElevation: 0,
+          borderSide: BorderSide(color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+//                Image(
+//                    image: AssetImage("assets/images/google_logo.png"), height: 35.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'SignUp',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
-        FlatButton(
-          child:
-              Text('Existing User? signIn', style: TextStyle(fontSize: 20.0)),
+        SizedBox(
+          height: 10.0,
+        ),
+        OutlineButton(
+          splashColor: Colors.grey,
           onPressed: moveToLogin,
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+          highlightElevation: 0,
+          borderSide: BorderSide(color: Colors.grey),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+//                Image(
+//                    image: AssetImage("assets/images/google_logo.png"), height: 35.0),
+                Padding(
+                  padding: const EdgeInsets.only(left: 10),
+                  child: Text(
+                    'Existing User? SignIn',
+                    style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.grey,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
         ),
       ];
     }
