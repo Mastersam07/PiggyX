@@ -100,12 +100,12 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: buildImage() + buildInputs() + buildSubmitButtons(),
-            ),
+          child: ListView(
+//            crossAxisAlignment: CrossAxisAlignment.stretch,
+//            mainAxisSize: MainAxisSize.max,
+//            mainAxisAlignment: MainAxisAlignment.center,
+            children: buildImage() + buildInputs() + buildSubmitButtons(),
+          ),
         ),
       ),
     );
@@ -134,11 +134,21 @@ class _LoginPageState extends State<LoginPage> {
 
   List<Widget> buildImage() {
     return <Widget>[
-      Center(
-        child: CircleAvatar(
-          backgroundImage: AssetImage('assets/images/piggyicon.png'),
-          backgroundColor: Colors.white,
-          radius: 100.0,
+//      new Container(alignment: Alignment.center,
+//          height: 200.0,
+//          width: 100.0,
+//          decoration: new BoxDecoration(
+//              shape: BoxShape.circle,
+//              image: new DecorationImage(
+//                  fit: BoxFit.fill,
+//                  image: new AssetImage("assets/images/piggyicon.png")))),
+      Container(
+        child: Center(
+          child: CircleAvatar(
+            backgroundImage: AssetImage('assets/images/piggyicon.png'),
+            backgroundColor: Colors.white,
+            radius: 100.0,
+          ),
         ),
       ),
       SizedBox(
