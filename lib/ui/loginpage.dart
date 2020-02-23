@@ -108,13 +108,25 @@ class _LoginPageState extends State<LoginPage> {
     return <Widget>[
       TextFormField(
         key: Key('email'),
-        decoration: InputDecoration(labelText: 'Email'),
+        decoration: InputDecoration(
+          labelText: 'Email',
+          icon: Icon(
+            Icons.mail,
+            color: Colors.grey,
+          ),
+        ),
         validator: EmailFieldValidator.validate,
         onSaved: (String value) => _email = value,
       ),
       TextFormField(
         key: Key('password'),
-        decoration: InputDecoration(labelText: 'Password'),
+        decoration: InputDecoration(
+          labelText: 'Password',
+          icon: Icon(
+            Icons.lock,
+            color: Colors.grey,
+          ),
+        ),
         obscureText: true,
         validator: PasswordFieldValidator.validate,
         onSaved: (String value) => _password = value,

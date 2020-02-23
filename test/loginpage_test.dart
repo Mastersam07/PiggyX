@@ -32,6 +32,21 @@ void main() {
     expect(didSignIn, false);
   });
 
+  testWidgets('email or password is empty, does not sign up', (
+      WidgetTester tester) async {
+    MockAuth mockAuth = MockAuth();
+
+    bool didSignUp = false;
+    LoginPage page = LoginPage(onSignedIn: () => didSignUp = true);
+
+    await tester.pumpWidget(makeTestableWidget(child: page, auth: mockAuth));
+
+    await tester.tap(find.byKey(Key('SignUp')));
+
+    verifyNever(mockAuth.createUserWithEmailAndPassword('', ''));
+    expect(didSignUp, false);
+  });
+
   testWidgets(
       'non-empty email and password, valid account, call sign in, succeed', (
       WidgetTester tester) async {

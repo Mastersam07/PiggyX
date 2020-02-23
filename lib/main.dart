@@ -3,7 +3,7 @@ import 'package:PiggyX/services/auth.dart';
 import 'package:PiggyX/services/auth_provider.dart';
 import 'package:PiggyX/ui/rootpage.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(MyApp(),);
 
 class MyApp extends StatelessWidget {
   @override
@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
     return AuthProvider(
       auth: Auth(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'PiggyX',
         theme: ThemeData(
           primarySwatch: Colors.blue,
