@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
         title: Text('Welcome'),
         actions: <Widget>[
           FlatButton(
-            child: Text('signOut', style: TextStyle(fontSize: 17.0, color: Colors.white)),
+            child: Text('SignOut', style: TextStyle(fontSize: 17.0, color: Colors.white)),
             onPressed: () => _signOut(context),
           )
         ],

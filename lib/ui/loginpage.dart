@@ -100,14 +100,12 @@ class _LoginPageState extends State<LoginPage> {
         padding: EdgeInsets.all(16.0),
         child: Form(
           key: formKey,
-          child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.center,
               children: buildImage() + buildInputs() + buildSubmitButtons(),
             ),
-          ),
         ),
       ),
     );
@@ -129,7 +127,7 @@ class _LoginPageState extends State<LoginPage> {
         onSaved: (String value) => _password = value,
       ),
       SizedBox(
-        height: 10.0,
+        height: 8.0,
       ),
     ];
   }
@@ -144,7 +142,7 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
       SizedBox(
-        height: 50.0,
+        height: 25.0,
       ),
     ];
   }
@@ -183,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         SizedBox(
-          height: 10.0,
+          height: 8.0,
         ),
         OutlineButton(
           key: Key('SignInWithGogle'),
@@ -217,7 +215,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         SizedBox(
-          height: 10.0,
+          height: 8.0,
         ),
         OutlineButton(
           key: Key('SignUp'),
@@ -282,7 +280,7 @@ class _LoginPageState extends State<LoginPage> {
           ),
         ),
         SizedBox(
-          height: 10.0,
+          height: 8.0,
         ),
         OutlineButton(
           splashColor: Colors.grey,
