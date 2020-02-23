@@ -63,18 +63,11 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future<void> validateAndLoginGoogle() async {
-    try {
-      final BaseAuth auth = AuthProvider.of(context).auth;
-      if (_formType == FormType.login) {
-        final String userId = await auth.signInWithGoogle();
-        print('Signed in: $userId');
-      }
-      widget.onSignedIn();
-    } catch (e) {
-      print('Error: $e');
-    }
-  }
+//  Future<void> validateAndLoginGoogle() async {
+//      final BaseAuth auth = AuthProvider.of(context).auth;
+//        final String userId = await auth.signInWithGoogle();
+//        print('Signed in: $userId');
+//  }
 
   void moveToRegister() {
     formKey.currentState.reset();
@@ -193,40 +186,40 @@ class _LoginPageState extends State<LoginPage> {
         SizedBox(
           height: 8.0,
         ),
-        OutlineButton(
-          key: Key('SignInWithGogle'),
-          splashColor: Colors.grey,
-          onPressed: validateAndLoginGoogle,
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
-          highlightElevation: 0,
-          borderSide: BorderSide(color: Colors.grey),
-          child: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Image(
-                    image: AssetImage("assets/images/google_logo.png"),
-                    height: 35.0),
-                Padding(
-                  padding: const EdgeInsets.only(left: 10),
-                  child: Text(
-                    'Sign in with Google',
-                    style: TextStyle(
-                      fontSize: 20,
-                      color: Colors.grey,
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-        ),
-        SizedBox(
-          height: 8.0,
-        ),
+//        OutlineButton(
+//          key: Key('SignInWithGogle'),
+//          splashColor: Colors.grey,
+//          onPressed: validateAndLoginGoogle,
+//          shape:
+//              RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
+//          highlightElevation: 0,
+//          borderSide: BorderSide(color: Colors.grey),
+//          child: Padding(
+//            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
+//            child: Row(
+//              mainAxisSize: MainAxisSize.min,
+//              mainAxisAlignment: MainAxisAlignment.center,
+//              children: <Widget>[
+//                Image(
+//                    image: AssetImage("assets/images/google_logo.png"),
+//                    height: 35.0),
+//                Padding(
+//                  padding: const EdgeInsets.only(left: 10),
+//                  child: Text(
+//                    'Sign in with Google',
+//                    style: TextStyle(
+//                      fontSize: 20,
+//                      color: Colors.grey,
+//                    ),
+//                  ),
+//                )
+//              ],
+//            ),
+//          ),
+//        ),
+//        SizedBox(
+//          height: 8.0,
+//        ),
         OutlineButton(
           key: Key('SignUp'),
           splashColor: Colors.grey,

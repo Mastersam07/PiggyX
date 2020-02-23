@@ -9,8 +9,8 @@ class HomePage extends StatelessWidget {
   Future<void> _signOut(BuildContext context) async {
     try {
       final BaseAuth auth = AuthProvider.of(context).auth;
-//      await auth.signOut();
-      await auth.signOutGoogle();
+      await auth.signOut();
+//      await auth.signOutGoogle();
       onSignedOut();
     } catch (e) {
       print(e);
